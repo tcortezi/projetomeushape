@@ -8,47 +8,92 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
-# Use Puma as the app server
-gem 'puma', '~> 3.7'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
 
-# Use CoffeeScript for .coffee assets and views
+
+group :development,:test do
+  gem 'rspec-rails'
+  gem 'rspec-its'
+  gem 'simplecov', :require => false
+  gem 'guard-rspec'
+  gem 'guard-spork'
+  gem 'childprocess'
+  gem 'rails-erd'
+  gem 'pry-rails'
+  gem 'guard-rails'
+  gem 'guard-livereload'
+  gem 'guard-bundler'
+  gem 'web-console', '>= 3.3.0'
+  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :test do
+  gem 'selenium-webdriver'
+  gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'launchy'
+end
+
+
+gem 'mysql2'
+gem 'bootstrap', '~> 4.0.0'
+gem 'sprockets'
+gem 'bcrypt'
+gem 'uglifier'
 gem 'coffee-rails', '~> 4.2'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+# gem 'puma', '~> 3.7'
+gem 'sass-rails'
+gem 'jquery-rails'
+gem 'turbolinks'
+gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 2.5'
+gem 'shoulda'
+gem 'date_validator'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap' # Uses bootstrap 3 and is no longer maintained, possibly a future issue
+gem 'searchkick'
+gem 'money'
+gem 'money-rails'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+gem 'geocoder'
+gem 'geo_ip'
+gem 'pagarme'
+gem 'wkhtmltopdf-binary'
+gem 'wicked_pdf'
+gem 'premailer-rails'
+gem 'nokogiri'
+gem 'acts_as_votable', '~> 0.11.1'
+gem 'aws-sdk-v1'
+gem 'carrierwave'
+# gem 'fog' # Gem that helps with cloud libraries, use if needed
+gem 'figaro'
+gem 'mini_magick' # Reported unsolved issues at github repository, may crack
+gem 'responders' # Flash responders by plataformatec
+gem 'devise'
+# gem 'elastic-beanstalk' # If going to use AWS
+gem 'font-awesome-rails' # Font-awesome icon
+gem 'mail_form'
+# gem 'simple_form'
+
+group :doc do
+  # bundle exec rake doc:rails generates the API under doc/api.
+  gem 'sdoc', require: false
+end
+
+
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
+group :production do
+  gem 'pg'
 end
 
-group :development do
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
