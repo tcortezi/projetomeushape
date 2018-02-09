@@ -17,3 +17,12 @@
 //= require popper
 //= require bootstrap
 //= require_tree .
+
+$(document).on('turbolinks:load', function() {
+    var links = $('.navbar ul li a');
+    $.each(links, function (key, va) {
+        if (va.href == document.URL) {
+            $(this).addClass('active');
+        }
+    });
+});

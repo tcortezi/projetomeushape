@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   resources :catalogues
   resources :products
   root "pages#index"
+  get 'guias', to: 'pages#guias'
   
 end

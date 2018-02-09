@@ -1,3 +1,4 @@
+<% provide(:title, "Cadastre-se") %>
 <% content_for :navbar do %>
 <%= render 'layouts/header-clean' %>
 <% end %>
@@ -18,10 +19,10 @@
 
             <div class="form-row">
               <div class="col form-group">
-                <%= f.text_field :name, autofocus: true, placeholder: "Nome", class: "form-control" %>
+                <%= f.text_field :name, autofocus: true, placeholder: "Nome", required: true, class: "form-control" %>
               </div>
               <div class="col form-group">
-                <%= f.text_field :lastname, autofocus: true, placeholder: "Sobrenome", class: "form-control" %>
+                <%= f.text_field :lastname, autofocus: true, placeholder: "Sobrenome", required: true, class: "form-control" %>
               </div>
             </div>
 
@@ -30,14 +31,14 @@
             </div>
 
             <div class="form-group">
-              <%= f.password_field :password, autocomplete: "off", placeholder: "Senha", class: "form-control" %>
+              <%= f.password_field :password, autocomplete: "off", placeholder: "Senha", required: true, class: "form-control" %>
               <% if @minimum_password_length %>
               <small class="form-text text-muted">(<%= @minimum_password_length %> dígitos mínimos)</small>
               <% end %>
             </div>
 
             <div class="form-group">
-              <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirme sua senha", class: "form-control" %>
+              <%= f.password_field :password_confirmation, autocomplete: "off", required: true, placeholder: "Confirme sua senha", class: "form-control" %>
             </div>
 
             <p><small>Ao cadastrar-se, você concorda com a <%= link_to "política de privacidade", "#" %> e os <%= link_to "termos de uso", "#" %>.</small></p>

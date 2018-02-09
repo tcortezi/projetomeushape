@@ -1,22 +1,38 @@
-<% provide(:title, "Resend Confirmation") %>
-<div class="col-md-6">
-    <h1 class="text-center">Resend confirmation instructions</h1>
-
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <div id="error_explanation" class="col-md-12">
-    <%= devise_error_messages! %>
-  </div>
-  <div class="col-md-12">
-    <div class="form-group">
-      <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), placeholder: "E-mail", class: "form-control" %>
-    </div>
-
-    <div class="actions shared_links">
-      <%= f.submit "Resend confirmation instructions", class: "btn btn-large btn-primary" %>
-    </div>
-    <%= render "users/shared/links" %>
-  </div>
+<% provide(:title, "Reenviar Confirmação") %>
+<% content_for :navbar do %>
+<%= render 'layouts/header-clean' %>
 <% end %>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 ml-auto mr-auto mt-5">
+      <div class="card">
+        <div class="card-body">
+
+          <h4 class="card-title">Reenviar Mensagem de Confirmação</h4>
+<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+<%= devise_error_messages! %>
+
+          <div class="form-group">
+            <%= f.email_field :email, autofocus: true, required: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), placeholder: "E-mail", class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.button "Reenviar confirmação", class: "btn btn-large btn-primary btn-block", data: { "disable-with": "<i class='fa fa-spinner fa-spin'></i> Reenviando..." } %>
+          </div>
+
+          <div class="text-muted text-sm-left text-md-right">
+            <small>
+            <%= render "devise/shared/links" %>
+            </small>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
 
 
