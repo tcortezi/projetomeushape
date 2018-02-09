@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= yield :title %><%= content_for?(:title) ? ' ·' : '' %> ProjetoMeuShape</title>
+    <script src="https://use.typekit.net/leq2dmp.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    <title><%= yield :title %><%= content_for?(:title) ? ' · ' : '' %>Meushape.com</title>
     <%= csrf_meta_tags %>
 
     <meta charset="utf-8">
@@ -11,16 +13,36 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
-    <div class="container-fluid">
-        <% flash.each do |key, value| %>
-            <div class="alert alert-<%= key %> col-md-8 col-md-offset-2 main"><%= value %></div>
-        <% end %>
-        <div class="row">
-            <%= yield %>
+    
+    <% if content_for?(:navbar) %>
+      <%= yield(:navbar) %>
+    <% else %>
+      <%= render 'layouts/header' %>
+    <% end %>    
+    
+      <% if flash[:notice] %>
+      <div class="container">
+        <div class="alert alert-success alert-dismissible fade show"><%= flash[:notice] %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
         </div>
-    </div>
+      </div>
+      <% elsif flash[:alert] %>
+      <div class="container">
+        <div class="alert alert-danger alert-dismissible fade show"><%= flash[:alert] %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+      </div>
+      <% end %>
+
+    <%= yield %>
+
     <%= render 'layouts/footer' %>
+
     <% debug(params) if Rails.env.development? %>
+
   </body>
 </html>

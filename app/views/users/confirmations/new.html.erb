@@ -8,11 +8,11 @@
   </div>
   <div class="col-md-12">
     <div class="form-group">
-      <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), placeholder: "Password", class: "form-control" %>
+      <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), placeholder: "E-mail", class: "form-control" %>
     </div>
 
     <div class="actions shared_links">
-      <%= f.button :submit, "Resend confirmation instructions", class: "btn btn-primary" %>
+      <%= f.submit "Resend confirmation instructions", class: "btn btn-large btn-primary" %>
     </div>
     <%= render "users/shared/links" %>
   </div>

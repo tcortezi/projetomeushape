@@ -112,18 +112,16 @@ GEM
     erubi (1.7.0)
     eventmachine (1.2.5)
     execjs (2.7.0)
-    factory_girl (4.9.0)
+    factory_bot (4.8.2)
       activesupport (>= 3.0.0)
-    factory_girl_rails (4.9.0)
-      factory_girl (~> 4.9.0)
+    factory_bot_rails (4.8.2)
+      factory_bot (~> 4.8.2)
       railties (>= 3.0.0)
     faker (1.8.7)
       i18n (>= 0.7)
     faraday (0.14.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
-    figaro (1.1.1)
-      thor (~> 0.14)
     font-awesome-rails (4.7.0.3)
       railties (>= 3.2, < 5.2)
     formatador (0.2.5)
@@ -241,6 +239,9 @@ GEM
     pry-rails (0.3.6)
       pry (>= 0.10.4)
     public_suffix (3.0.1)
+    puma (3.11.2)
+    pundit (1.1.0)
+      activesupport (>= 3.0.0)
     rack (2.0.3)
     rack-test (0.8.2)
       rack (>= 1.0, < 3)
@@ -307,7 +308,7 @@ GEM
       rspec-expectations (~> 3.7.0)
       rspec-mocks (~> 3.7.0)
       rspec-support (~> 3.7.0)
-    rspec-support (3.7.0)
+    rspec-support (3.7.1)
     ruby-graphviz (1.2.3)
     ruby_dep (1.5.0)
     rubyzip (1.2.1)
@@ -404,9 +405,8 @@ DEPENDENCIES
   devise
   elasticsearch-model
   elasticsearch-rails
-  factory_girl_rails
+  factory_bot_rails
   faker
-  figaro
   font-awesome-rails
   geo_ip
   geocoder
@@ -425,11 +425,12 @@ DEPENDENCIES
   money
   money-rails
   mysql2
-  nokogiri
   pagarme
   pg
   premailer-rails
   pry-rails
+  puma (~> 3.7)
+  pundit (~> 1.1)
   rails (~> 5.1.4)
   rails-erd
   responders

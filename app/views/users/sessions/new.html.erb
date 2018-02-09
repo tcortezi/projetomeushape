@@ -1,15 +1,45 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email, required: false, autofocus: true %>
-    <%= f.input :password, required: false %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
+<% content_for :navbar do %>
+<%= render 'layouts/header-clean' %>
 <% end %>
 
-<%= render "users/shared/links" %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 ml-auto mr-auto">
+      <h1 class="text-center">Bem Vindo de Volta</h1>
+      <br />
+
+      <div class="card">
+        <div class="card-body">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+
+          <div class="form-group input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text"><i class="fa fa-envelope"></i></div>
+            </div>
+            <%= f.email_field :email, autofocus: true, placeholder: "Email", autocomplete: "email", class: "form-control" %>
+          </div>
+
+          <div class="form-group input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text"><i class="fa fa-key"></i></div>
+            </div>
+            <%= f.password_field :password, placeholder: "Senha", autocomplete: "off", class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.button "Entrar", class: "btn btn-primary btn-lg btn-block", data: { "disable-with": "<i class='fa fa-spinner fa-spin'></i> Entrando..." } %>
+          </div>
+
+          <div class="text-center">
+            <%= link_to "Ainda não é cadastrado?", signup_path %>
+          </div>
+          <div class="text-center">
+            <%= link_to "Esqueci minha senha", new_user_password_path, class: "text-muted" %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

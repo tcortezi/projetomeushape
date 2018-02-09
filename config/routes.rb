@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   resources :catalogues
-  root "catalogues#index"
+  resources :products
+  root "pages#index"
   
 end

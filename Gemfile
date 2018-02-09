@@ -31,7 +31,7 @@ end
 group :test do
   gem 'selenium-webdriver'
   gem 'capybara'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'faker'
   gem 'launchy'
 end
@@ -43,7 +43,7 @@ gem 'sprockets'
 gem 'bcrypt'
 gem 'uglifier'
 gem 'coffee-rails', '~> 4.2'
-# gem 'puma', '~> 3.7'
+gem 'puma', '~> 3.7'
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
@@ -64,15 +64,16 @@ gem 'pagarme'
 gem 'wkhtmltopdf-binary'
 gem 'wicked_pdf'
 gem 'premailer-rails'
-gem 'nokogiri'
+# gem 'nokogiri'
 gem 'acts_as_votable', '~> 0.11.1'
 gem 'aws-sdk-v1'
 gem 'carrierwave'
 # gem 'fog' # Gem that helps with cloud libraries, use if needed
-gem 'figaro'
+# gem 'figaro' # Looks like a deprecated gem
 gem 'mini_magick' # Reported unsolved issues at github repository, may crack
 gem 'responders' # Flash responders by plataformatec
 gem 'devise'
+gem 'pundit', '~> 1.1'
 # gem 'elastic-beanstalk' # If going to use AWS
 gem 'font-awesome-rails' # Font-awesome icon
 gem 'mail_form'

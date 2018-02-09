@@ -1,0 +1,74 @@
+<div class="pb-5 pt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-5">
+        <h1 class="">A solução para manter seu corpo em forma.</h1>
+        <h2 class="lead">Junte-se a mais de 2.000 usuários aprendendo juntos a passar pelos desafios diários em busca do shape dos sonhos.</h2>
+        <p class=""><%= link_to "Comece Agora", signup_path, class:"btn btn-success btn-lg" %></p>
+      </div>
+
+      <div class="col-sm-6 ml-auto">
+        <div class="header-anima img-raised">
+          <%= image_tag("pages/header-1.jpg", height: "320", class: "headerAnima img-fluid") %>
+          <%= image_tag("pages/header-2.jpg", height: "320", class: "headerAnima img-fluid") %>
+          <%= image_tag("pages/header-3.jpg", height: "320", class: "headerAnima img-fluid") %>
+          <%= image_tag("pages/header-4.jpg", height: "320", class: "headerAnima img-fluid") %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script data-turbolinks-track="false">
+var myIndex = null;
+
+$( document ).on('turbolinks:load', function() {
+
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("headerAnima");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+//setInterval(carousel, 2000);
+});
+</script>
+
+<div class="pt-5 pb-5 dark-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <%= link_to image_tag("pages/guides.jpg", height: "320", class: "img-fluid rounded img-raised"), signup_path %>
+      </div>
+      <div class="col-sm-6">
+        <h3>Guias Práticos de Treinamento</h3>
+        <p class="text-muted">Quer manter de forma consistente a evolução de seus treinamentos? Desenvolvemos guias estruturados por profissionais experientes para passar de forma clara e prática um caminho para o sucesso, seja qual for o seu objetivo, nós temos uma solução pra você.</p>
+        <p><strong><%= link_to "Conheça nossos cursos →", signup_path, class: "btn btn-outline-dark" %></strong></p>
+      </div>
+    </div>
+
+    <br />
+    <br />
+
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Você É O Que Você Come?</h3>
+        <p class="text-muted">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Nulla porttitor accumsan tincidunt. Proin eget tortor risus. Pellentesque in ipsum id orci porta dapibus.</p>
+        <p><strong><%= link_to "Comece sua dieta →", signup_path, class: "btn btn-outline-dark" %></strong></p>
+      </div>
+
+      <div class="col-sm-6">
+        <%= link_to image_tag("pages/food.jpg", height: "320", class: "img-fluid rounded img-raised"), signup_path %>
+      </div>
+    </div>
+
+  </div>
+</div>
